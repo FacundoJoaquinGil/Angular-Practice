@@ -1,0 +1,17 @@
+<h1 appEstilosHermanos>Hola Soy El Padre</h1>
+
+<h2>La fecha de hoy es {{fecha | date}}</h2>
+
+<h1 appEstilosHermanos>El contador recibido desde el hijo es: {{contador}}</h1>
+
+<app-hijo [recibeHijo]="MensajeDesdePadre" (mensajeDesdeHijo)="recibirMensaje($event)" (incrementarHijo)="incrementar()"
+    (decrementarHijo)="decrementar()" />
+
+<h2>El mensaje que recibo desde el hijo es: {{recibePadre}}</h2>
+
+<h1 appEstilosHermanos>{{nombre | miPipePersonalizado}}</h1>
+
+<div appEstilosHermanos>
+    <button type="button" (click)="saludar()">Saludar</button>
+    <button type="button" (click)="preguntar()">Preguntar</button>
+</div>

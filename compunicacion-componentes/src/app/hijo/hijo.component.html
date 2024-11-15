@@ -1,0 +1,16 @@
+<p>Hola soy el hijo!</p>
+<h1>{{recibeHijo}}</h1>
+
+
+
+<div>
+    <h2>Contador desde el hijo:</h2>
+    <button class="botones" (click)="incrementar()">Incrementar</button>
+    <button class="botones" (click)="decrementar()">Decrementar</button>
+</div>
+<br>
+<div>
+    <label for="entrada">Escribi un msj para el padre</label>
+    <input type="text" id="entrada" [(ngModel)]="mensaje">
+    <button (click)="enviarMensaje()">Enviar</button>
+</div>
