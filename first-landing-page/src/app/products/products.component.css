@@ -3,3 +3,7 @@ h1{
     background-color: rgba(188, 73, 188, 0.147);
     padding: 10px;
 }
+
+.color-price{
+    color: rgb(34, 207, 34);
+}

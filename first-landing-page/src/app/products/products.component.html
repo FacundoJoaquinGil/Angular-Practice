@@ -9,23 +9,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Lavandina</td>
-        <td>$2000</td>
-        <button type="button" class="btn btn-info">Detalle</button>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Detergente</td>
-        <td>$1500</td>
-        <button type="button" class="btn btn-info">Detalle</button>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Limpia Vidrios</td>
-        <td>$800</td>
-        <button type="button" class="btn btn-info">Detalle</button>
+      <tr *ngFor="let product of productList">
+        <th scope="row">{{product.id}}</th>
+        <td>{{product.name}}</td>
+        <td ngClass="color-price">{{product.price | currency }}</td>
+        <button type="button" class="btn btn-info" [routerLink]="['/products', product.id]">Detalle</button>
       </tr>
     </tbody>
   </table>

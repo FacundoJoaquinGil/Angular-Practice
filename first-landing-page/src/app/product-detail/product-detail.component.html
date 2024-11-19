@@ -1,1 +1,15 @@
-<p>product-detail works!</p>
+<ng-container *ngIf="!loading">
+    <h3 *ngIf="producto?.description; else sinDescripcion">
+        Aquí verás los detalles del producto: {{ producto?.description }}
+      </h3>
+      
+      <ng-template #sinDescripcion>
+        <h1>No se encontró descripción.</h1>
+      </ng-template>
+</ng-container>
+
+<ng-container *ngIf="loading">
+    <i [ngStyle]="{'display': 'flex', 'justify-content': 'center', 'align-items': 'center', 'margin': 'auto', 'height': '100vh', 'font-weight': 'bold'}">Is Loading...</i>
+  </ng-container>
+  
+  
