@@ -12,6 +12,23 @@
             <div class="text-danger"  *ngIf="hasError('email', 'email')">Ingrese un formato de mail válido</div>
             <div class="text-danger"  *ngIf="hasError('email', 'required')">Email Requerido</div>
         </div>
+        <div class="mb-3">
+            <label for="tipoDni" class="form-label">Tipo de Documento</label>
+            <select class="form-select" id="tipoDni" formControlName="tipoDni">
+                <option value="DNI">DNI</option>
+                <option value="Pasaporte">Pasaporte</option>
+                <option value="Cedula">Cedula</option>
+            </select>
+    
+        </div>
+
+        <div class=" mb-3">
+            <label class="form-label">{{tipoDni}}</label>
+            <input [ngClass]="{'is-invalid': hasError('dni', 'required') || hasError('dni', 'minlength')}" type="text" class="form-control" id="dni" formControlName="dni">
+            <div class="text-danger"  *ngIf="hasError('dni', 'required')">{{tipoDni}} requerido</div>
+            <div class="text-danger"  *ngIf="hasError('dni', 'minlength')">{{tipoDni}} minimo 3 caracteres</div>
+        </div>
+
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
