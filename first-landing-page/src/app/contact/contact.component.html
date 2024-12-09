@@ -2,15 +2,17 @@
     <form [formGroup]="myForm" (ngSubmit)="submit()">
         <div class="mb-3">
             <label class="form-label">Name</label>
-            <input [ngClass]="{'is-invalid': hasError('name', 'required') || hasError('name', 'minlength')}" type="text" class="form-control" id="name" formControlName="name">
+            <input [ngClass]="{'is-invalid': hasError('name', 'required') || hasError('name', 'minlength')}" type="text"
+                class="form-control" id="name" formControlName="name">
             <div class="text-danger" *ngIf="hasError('name', 'required')">Ingrese un nombre</div>
             <div class="text-danger" *ngIf="hasError('name', 'minlength')">Mínimo 3 caracteres</div>
         </div>
         <div class=" mb-3">
             <label class="form-label">Email</label>
-            <input [ngClass]="{'is-invalid': hasError('email', 'email') || hasError('email', 'required')}" type="email" class="form-control" id="email" formControlName="email">
-            <div class="text-danger"  *ngIf="hasError('email', 'email')">Ingrese un formato de mail válido</div>
-            <div class="text-danger"  *ngIf="hasError('email', 'required')">Email Requerido</div>
+            <input [ngClass]="{'is-invalid': hasError('email', 'email') || hasError('email', 'required')}" type="email"
+                class="form-control" id="email" formControlName="email">
+            <div class="text-danger" *ngIf="hasError('email', 'email')">Ingrese un formato de mail válido</div>
+            <div class="text-danger" *ngIf="hasError('email', 'required')">Email Requerido</div>
         </div>
         <div class="mb-3">
             <label for="tipoDni" class="form-label">Tipo de Documento</label>
@@ -19,14 +21,11 @@
                 <option value="Pasaporte">Pasaporte</option>
                 <option value="Cedula">Cedula</option>
             </select>
-    
+
         </div>
 
         <div class=" mb-3">
-            <label class="form-label">{{tipoDni}}</label>
-            <input [ngClass]="{'is-invalid': hasError('dni', 'required') || hasError('dni', 'minlength')}" type="text" class="form-control" id="dni" formControlName="dni">
-            <div class="text-danger"  *ngIf="hasError('dni', 'required')">{{tipoDni}} requerido</div>
-            <div class="text-danger"  *ngIf="hasError('dni', 'minlength')">{{tipoDni}} minimo 3 caracteres</div>
+            <dni-input [tipoDni]="tipoDni"/>
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
