@@ -7,9 +7,10 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./dni.component.css'],
 })
 export class DniComponent implements OnChanges {
+
   @Input() tipoDni: string = 'DNI';
 
-  variablePrueba: string = 'Documento';
+  variablePrueba: string = 'Primer Cambio';
 
   formularioDocumento: FormGroup;
 
@@ -23,7 +24,7 @@ export class DniComponent implements OnChanges {
     // console.log(changes?.['tipoDni'].currentValue)
     this.variablePrueba = !changes?.['tipoDni'].firstChange
       ? changes?.['tipoDni'].currentValue
-      : 'Documento';
+      : 'Documento'; //Ternario para distinguir el primer cambio, decimos "Si no es el primer cambio, asigna el valor actual de tipoDni; de lo contrario, asigna Documento"
   }
 
   hasError(controlName: string, errorType: string) {
