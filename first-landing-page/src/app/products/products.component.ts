@@ -9,15 +9,16 @@ import { IProduct } from '../models/product.model';
 })
 export class ProductsComponent implements OnInit {
 
-  productList: IProduct[];
+  productList: any[] = [];
 
   constructor(private _ApiService: ApiService) {}
 
   ngOnInit(): void {
-    this._ApiService.getAllCategories().subscribe(
+    this._ApiService.getAllProducts().subscribe((data: IProduct[]) => {
       console.log(data)
-      (data: IProduct[]) => (this.productList = data)
-    );
+      this.productList = this.productList;
+    });
+  
   }
 }
 
