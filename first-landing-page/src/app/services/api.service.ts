@@ -14,10 +14,10 @@ export class ApiService {
     
    }
 
-  public getProducts(): Observable <IProduct[]> {
+  public getAllProducts(): Observable <IProduct[]> {
     return this._httpClient.get<IProduct[]>(this.baseUrl);
   }
-  public getCategory(): Observable <Category[]> {
+  public getAllCategories(): Observable <Category[]> {
     return this._httpClient.get<Category[]>(`${this.baseUrl}/categories`);
   }
 
@@ -28,6 +28,18 @@ export class ApiService {
 
   public getProductsById(id: number): Observable <IProduct> {
     return this._httpClient.get<IProduct>(`${this.baseUrl}/${id}`);
+  }
+
+  public newProduct(product: IProduct): Observable<IProduct>{
+    return this._httpClient.post<IProduct>(`${this.baseUrl}`, product)
+  }
+
+  public updateProduct (id:number, product: IProduct): Observable<IProduct>{
+    return this._httpClient.put<IProduct>(`${this.baseUrl}/${id}`, product)
+  }
+
+  public deleteProduct (id:number): Observable<IProduct>{
+    return this._httpClient.delete<IProduct>(`${this.baseUrl}/${id}`)
   }
 
 }
