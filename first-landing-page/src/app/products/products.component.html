@@ -1,4 +1,4 @@
-<h1>Componente Products</h1>
+<h1>Consumiendo Fake Api de Productos</h1>
 <table class="table">
     <thead>
       <tr>
@@ -11,7 +11,7 @@
     <tbody>
       <tr *ngFor="let product of productList">
         <th scope="row">{{product.id}}</th>
-        <td>{{product.name}}</td>
+        <td>{{product.title}}</td>
         <td ngClass="color-price">{{product.price | currency }}</td>
         <button type="button" class="btn btn-info" [routerLink]="['/products', product.id]">Detalle</button>
       </tr>
