@@ -1,0 +1,8 @@
+.card-img-top{
+    object-fit: cover;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+}

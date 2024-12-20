@@ -1,12 +1,14 @@
-<ng-container *ngIf="!loading">
-    <h3 *ngIf="producto?.description; else sinDescripcion">
-        Aquí verás los detalles del producto: {{ producto?.description }}
-      </h3>
-      
-      <ng-template #sinDescripcion>
-        <h1>No se encontró descripción.</h1>
-      </ng-template>
-</ng-container>
+<div class="center">
+  <ng-container *ngIf="!loading" >
+    <div class="card" style="width: 18rem;">
+      <img src="{{product?.image}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{product?.title}}</h5>
+        <p class="card-text">{{product?.description}}</p>
+      </div>
+    </div>
+  </ng-container>
+</div>
 
 <ng-container *ngIf="loading">
     <i [ngStyle]="{'display': 'flex', 'justify-content': 'center', 'align-items': 'center', 'margin': 'auto', 'height': '100vh', 'font-weight': 'bold'}">Is Loading...</i>
