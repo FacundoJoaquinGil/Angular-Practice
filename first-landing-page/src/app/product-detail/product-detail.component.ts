@@ -11,7 +11,7 @@ import { IProduct } from '../models/product.model';
 export class ProductDetailComponent implements OnInit {
   
   product?: IProduct;
-  loading: boolean = true;
+  // loading: boolean = true;
 
   constructor(
     private _route: ActivatedRoute,
@@ -21,14 +21,15 @@ export class ProductDetailComponent implements OnInit {
   ngOnInit(): void {
     this._route.params.subscribe({
       next: (params: Params) => {
-      this._apiService.getProductsById(Number(params['productsId'])).subscribe({
-      next: (data: IProduct) =>{
+      console.log(params);
+      this._apiService.getProductsById((params['productsId'])).subscribe({
+        next: (data: IProduct) =>{
         this.product = data 
-        this.loading = false;
+        // this.loading = false;
       },
       error: (error: any) => {
         console.log(error);
-        this.loading = false;
+        // this.loading = false;
       }
     })
     }
