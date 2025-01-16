@@ -23,7 +23,7 @@ export class TareasService {
 
   deleteTarea(index: number){
     const tareas = this.getTarea();
-    tareas.splice(index, 1)
+    tareas.splice(index, 1) //argumento y cantidad de elementos que se borraran
     localStorage.setItem(this.localStorageKey, JSON.stringify(tareas))
   }
 }
